@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ tittle }}</title>
+</head>
+<body>
+<h1>{{ tittle }}</h1>
+{% for f in films %}
+<p><a href="{{ f.slug }}">{{ f.name }}</a></p>
+{% endfor %}
+</body>
+</html>
