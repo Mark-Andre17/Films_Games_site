@@ -61,7 +61,3 @@ class Film(models.Model):
         return reverse('films', kwargs={'film_url': self.slug})
 
 
-class User(models.Model):
-    name = models.TextField(max_length=200, unique=True)
-    email = models.EmailField(max_length=300, unique=True)
-    password = models.TextField(max_length=150)

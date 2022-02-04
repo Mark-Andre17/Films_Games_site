@@ -10,4 +10,4 @@ admin.site.register(Actor)
 admin.site.register(Producer)
 admin.site.register(Genre)
 admin.site.register(Film, FilmAdmin)
-admin.site.register(User)
+
