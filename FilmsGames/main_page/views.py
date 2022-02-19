@@ -11,7 +11,8 @@ from .forms import LoginForm, UserRegistrationForm
 menu = [
     {'tittle': 'Фильмы', 'url_name': 'films'},
     {'tittle': 'Игры', 'url_name': 'games'},
-    {'tittle': 'Регистрация', 'url_name': 'registration'}
+    {'tittle': 'Регистрация', 'url_name': 'registration'},
+    {'tittle': 'Вход', 'url_name': 'login'}
 ]
 
 

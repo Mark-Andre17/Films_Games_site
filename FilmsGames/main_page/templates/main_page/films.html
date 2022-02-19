@@ -7,7 +7,7 @@
 <body>
 <h1>{{ tittle }}</h1>
 {% for f in films %}
-<p><a href="{{ f.slug }}">{{ f.name }}</a></p>
+<p><a href="{{ f.slug }}"><img src="{{ f.poster.url }}" alt="{{ f.name }}"></a></p>
 {% endfor %}
 </body>
 </html>
