@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>{{ tittle }}</h1>
-{% for f in films %}
-<p><a href="{{ f.slug }}"><img src="{{ f.poster.url }}" alt="{{ f.name }}"></a></p>
+{% for g in games %}
+<p><a href="{{ g.slug }}"><img src="{{ g.poster.url }}" alt="{{ g.name }}"></a></p>
 {% endfor %}
 </body>
 </html>

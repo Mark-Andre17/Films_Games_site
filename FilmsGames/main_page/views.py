@@ -33,6 +33,18 @@ def film_info(request, film_slug):
     return render(request, 'main_page/film_info.html', context)
 
 
+def game(request):
+    games = Game.objects.all()
+    context = {'tittle': 'Игры', 'games': games}
+    return render(request, 'main_page/games.html', context)
+
+
+def game_info(request, game_slug):
+    games = Game.objects.get(slug=game_slug)
+    context = {'tittle': 'Игры', 'games': games}
+    return render(request, 'main_page/game_info.html', context)
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
