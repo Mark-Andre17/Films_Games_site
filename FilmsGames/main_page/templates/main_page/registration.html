@@ -1,17 +1,27 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{{ tittle }}</title>
 </head>
 <body>
+ <link type="text/css" rel="stylesheet" href="{% static 'main_page/css/reg.css' %}">
+<div class="container">
 <h1>Создайте новый аккаунт</h1>
     <p>Используйте форму для регистрации:</p>
+    <hr>
     <form action="." method="post">
         {{ user_form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Create my account"></p>
+        <p><input type="submit" value="Создать аккаунт"></p>
     </form>
     </form>
+    </hr>
+</div>
+  <div class="container signin">
+    <p>Уже есть аккаунт? <a href="{% url 'login' %}">Вход</a>.</p>
+  </div>
+</form>
 </body>
 </html>

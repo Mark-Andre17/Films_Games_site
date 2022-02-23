@@ -1,26 +1,33 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Вход</title>
 </head>
 <body>
+ <link type="text/css" rel="stylesheet" href="{% static 'main_page/css/login.css' %}">
+ <div class="container">
  <h1>Вход</h1>
     {% if form.errors %}
         <p>
-            Your username and password didn't match.
-            Please try again.
+            Ваш логин или пароль не подходят.
+            Введите корректные данные.
         </p>
     {% else %}
-        <p>Please, use the following form to log-in:</p>
+        <p>Пожалуйста, используйте форму для входа</p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}"/>
-            <p><input type="submit" value="Log-in"></p>
+            <div class="form-actions">
+            <label class="checkbox">
+            <input type="checkbox" name="remember"/> Запомнить меня </label>
+            <p><input type="submit" value="Вход"></p>
+            </div>
         </form>
     </div>
+ </div>
 </body>
-</html>
