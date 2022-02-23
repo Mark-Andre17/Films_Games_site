@@ -39,9 +39,12 @@ def user_login(request):
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
+            remember_me = form.cleaned_data['remember_me']
             if user is not None:
                 if user.is_active:
                     login(request, user)
+                    if not remember_me:
+                        request.session.set_expiry(0)
                     return HttpResponse('Authenticated successfully')
                 else:
                     return HttpResponse('Disabled account')
@@ -61,11 +64,8 @@ def registration(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
-            # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
-            # Set the chosen password
             new_user.set_password(user_form.cleaned_data['password'])
-            # Save the User object
             new_user.save()
             return render(request, 'main_page/registration_done.html', {'tittle': 'Регистрация', 'new_user': new_user})
     else:
